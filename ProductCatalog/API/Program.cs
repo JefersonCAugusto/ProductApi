@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using ProductApi.Data;
+
 namespace API
 {
     public class Program
@@ -12,6 +15,7 @@ namespace API
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+            builder.Services.AddDbContext<AppDbContext>(x => x.UseInMemoryDatabase("ProductsDb"));
 
             var app = builder.Build();
 
